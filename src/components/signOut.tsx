@@ -7,7 +7,7 @@ const SignOut = ({title,icon}:{title:string,icon:React.ReactNode}) => {
   return (
     <Button  className='w-32 bg-yellow-500 font-semibold  flex gap-4'
     onClick={() =>
-      signOut()
+      signOut({ callbackUrl: '/', redirect:true })
     }
   >
     {title}

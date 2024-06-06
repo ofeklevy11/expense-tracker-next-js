@@ -27,19 +27,18 @@ export default function AuthButton() {
           height={200}
         ></Image>
 
-        <Button variant={'outline'} onClick={() => signOut()}>Sign Out</Button>
+        <Button
+          variant={"outline"}
+          onClick={() => signOut({ callbackUrl: "/", redirect: true })}
+        >
+          Sign Out
+        </Button>
       </div>
     );
   }
   return (
     <>
-      <Button
-        onClick={() =>
-          signIn()
-        }
-      >
-        Sign In
-      </Button>
+      <Button onClick={() => signIn()}>Sign In</Button>
     </>
   );
 }

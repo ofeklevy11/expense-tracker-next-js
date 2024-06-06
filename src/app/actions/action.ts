@@ -11,7 +11,7 @@ export async function addExpense(formData: FormData) {
   const userId =
     formData.get("userId") !== null ? Number(formData.get("userId")) : 420;
   const createdAt = formData.get("createdAt") as string;
-  const createdAtDate = new Date(createdAt);
+  const createdAtDate = new Date(createdAt)
 
   await prisma.transaction.create({
     data: {

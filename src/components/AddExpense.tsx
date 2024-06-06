@@ -7,8 +7,15 @@ import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
 
-const AddExpense = () => {
+import { FiSend } from "react-icons/fi";
+
+ const AddExpense = () => {
   const session = useSession();
+  const today = new Date();
+
+  const formattedDate = today.toISOString().split("T")[0];
+  
+
   return (
     <div className="container">
       <form
@@ -42,14 +49,22 @@ const AddExpense = () => {
           type="number"
           value={session.data?.user.id}
         ></Input>
-       <Input
+
+        <Input
           type="date"
           name="createdAt"
+          value={
+            formattedDate
+          }
+
+          
         ></Input>
-        <Button>submit</Button>
+        <Button className="w-30 flex gap-3 mx-auto font-bold py-6 px-6 mt-4 bg-blue-500/35 hover:bg-blue-500/20 text-white ">
+          submit <FiSend />
+        </Button>
       </form>
     </div>
   );
 };
 
-export default AddExpense;
+export default AddExpense

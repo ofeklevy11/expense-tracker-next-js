@@ -33,7 +33,8 @@ const page = async ({
       userId: userId,
     },
   })
-  const transactionsCount = await prisma.transaction.count();
+  // const transactionsCount = await prisma.transaction.count();
+  const transactionsCount = transactions.length
   
   const entries = transactions.slice(start, end);
 
@@ -280,7 +281,7 @@ const page = async ({
               <div
                 key={t.id}
                 className={cn(
-                  "grid  gap-24 grid-cols-5 items-center rounded-sm border border-pink-400/80 p-4",
+                  "grid  gap-24 grid-cols-5 items-center rounded-md   p-4",
                   t.type === "expense" ? "bg-red-500/30" : "bg-green-500/30"
                 )}
               >

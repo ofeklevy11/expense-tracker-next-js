@@ -6,7 +6,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import PageTitle from '@/components/PageTitle';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaSave, FaTrash } from "react-icons/fa";
 import DeleteExpense from '@/components/DeleteExpense';
 import { useSession } from 'next-auth/react';
 import UpdateExpense from '@/components/UpdateExpense';
@@ -99,7 +99,8 @@ const  page = ({id,transaction} : {id:number,transaction:Transaction}) => {
         />
       </PopoverContent>
     </Popover>
-            <Button onClick={()=> updateExpense(id,name,amount,type,date)}>Save changes</Button>
+            <Button className='w-30 flex gap-3 mx-auto font-semibold py-6 px-6 mt-4 bg-blue-500/35 hover:bg-blue-500/20 text-white' onClick={()=> updateExpense(id,name,amount,type,date)}>Save changes <FaSave />
+            </Button>
            
         </div>
     </div>

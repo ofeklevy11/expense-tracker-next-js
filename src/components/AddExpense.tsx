@@ -11,9 +11,9 @@ import { FiSend } from "react-icons/fi";
 
  const AddExpense = () => {
   const session = useSession();
-  const today = new Date();
+  // const today = new Date();
 
-  const formattedDate = today.toISOString().split("T")[0];
+  // const formattedDate = today.toISOString().split("T")[0];
   
 
   return (
@@ -23,14 +23,18 @@ import { FiSend } from "react-icons/fi";
         className="max-w-[500px] mx-auto flex flex-col gap-4"
       >
         <Label htmlFor="name">Transaction Name</Label>
-        <Input placeholder="Food" className="" name="name"></Input>
+        <Input placeholder="Food" className="" name="name" required></Input>
+        <Label htmlFor="amount">Transaction Amount</Label>
+
         <Input
+        required
           placeholder="40"
           type="number"
           max={999999}
           name="amount"
         ></Input>
         {/* need to add server validation to check if number exceed INT limit and becoming BIGINT */}
+        <Label htmlFor="type">Transaction type</Label>
 
         <RadioGroup name="type" defaultValue="expense">
           <div className="flex items-center space-x-2">
@@ -49,13 +53,16 @@ import { FiSend } from "react-icons/fi";
           type="number"
           value={session.data?.user.id}
         ></Input>
+        <Label htmlFor="createdAt">Transaction Date</Label>
 
         <Input
           type="date"
           name="createdAt"
-          value={
-            formattedDate
-          }
+          // value={
+          //   formattedDate
+          // }
+          required
+          className="cursor-pointer"
 
           
         ></Input>
